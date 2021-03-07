@@ -2,6 +2,7 @@ package com.jr.service;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.coxautodev.graphql.tools.GraphQLSubscriptionResolver;
 import com.jr.model.Actor;
 import com.jr.model.AddressInput;
 import com.jr.repository.ActorRepository;
@@ -17,7 +18,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
-public class ActorService implements GraphQLQueryResolver, GraphQLMutationResolver {
+public class ActorService implements GraphQLQueryResolver, GraphQLMutationResolver, GraphQLSubscriptionResolver {
 
     @Autowired
     private ActorRepository repository;
@@ -38,6 +39,9 @@ public class ActorService implements GraphQLQueryResolver, GraphQLMutationResolv
         Actor actor = repository.findById(id).get();
         actor.setAddress(address);
         repository.save(actor);
+        if (subscribers.get(id) != null) {
+            subscribers.get(id).next(actor);
+        }
         return actor;
     }
 

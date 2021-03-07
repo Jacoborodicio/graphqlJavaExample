@@ -1,6 +1,7 @@
 schema {
     query: Query,
-    mutation: Mutation
+    mutation: Mutation,
+    subscription: Subscription
 }
 
 type Actor {
@@ -31,4 +32,8 @@ type Query {
 type Mutation {
     updateAddress(id: Int, address: String):Actor,
     updateAddressByObjectType(input:AddressInput):Actor
+}
+
+type Subscription {
+    onActorUpdate(actorId:Int):Actor
 }
