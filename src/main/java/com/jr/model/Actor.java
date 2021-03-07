@@ -1,7 +1,4 @@
 package com.jr.model;
-
-import org.checkerframework.checker.units.qual.C;
-
 import javax.persistence.*;
 import java.util.Date;
 

@@ -9,14 +9,16 @@ type Actor {
     dob:String,
     address:String,
     filmId:Int,
+    film:Film
 }
 
 type Film {
     filmId:ID!,
     name:String,
-    lauchYear:String,
+    launchYear:String,
 }
 
 type Query {
-    getAllActors:[Actor]
+    getAllActors:[Actor],
+    getActorById(id: Int) : Actor,
 }
