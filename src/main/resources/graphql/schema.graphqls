@@ -1,5 +1,6 @@
 schema {
-    query: Query
+    query: Query,
+    mutation: Mutation
 }
 
 type Actor {
@@ -18,7 +19,16 @@ type Film {
     launchYear:String,
 }
 
+input AddressInput {
+    actorId: Int,
+    address: String
+}
 type Query {
     getAllActors:[Actor],
     getActorById(id: Int) : Actor,
+}
+
+type Mutation {
+    updateAddress(id: Int, address: String):Actor,
+    updateAddressByObjectType(input:AddressInput):Actor
 }
