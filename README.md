@@ -1,3 +1,6 @@
+
+Testing URL in local: http://localhost:8080/graphiql
+
 Examples of queries used in graphiql:
 ```
 # query ($id:Int){

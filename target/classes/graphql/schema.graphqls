@@ -24,14 +24,29 @@ input AddressInput {
     actorId: Int,
     address: String
 }
+
+type Example {
+    exampleId:ID!,
+    msg:String
+}
+
+input ExampleInput {
+    exampleId: Int,
+    msg: String
+}
+
 type Query {
     getAllActors:[Actor],
     getActorById(id: Int) : Actor,
+    getAllExamples:[Example],
+    getExampleById(id:Int):Example
 }
 
 type Mutation {
     updateAddress(id: Int, address: String):Actor,
-    updateAddressByObjectType(input:AddressInput):Actor
+    updateAddressByObjectType(input:AddressInput):Actor,
+    updateMsg(msg:String, id:Int):Example,
+    updateMsgByObjectType(input:ExampleInput):Example
 }
 
 type Subscription {

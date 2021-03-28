@@ -1,9 +1,12 @@
 package com.jr.service;
 
 import com.jr.model.Actor;
+import com.jr.model.Example;
 import com.jr.model.Film;
 import com.jr.repository.ActorRepository;
+import com.jr.repository.ExampleRepository;
 import com.jr.repository.FilmRepository;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +25,12 @@ public class DataLoaderService {
     @Autowired
     private FilmRepository filmRepository;
 
+    @Autowired
+    private ExampleRepository exampleRepository;
+
     @PostConstruct
     public void loadData() {
+        String [] exampleMsgs = {"Hello", "World"};
         String [] actors = {"Marlon Brando", "Angelina Joly", "Brad Pit", "Alicia Keys"};
         Map<String, String> films = new HashMap<String, String>() {
             {
@@ -42,6 +49,10 @@ public class DataLoaderService {
             Actor actor = new Actor(names[0], names[1], dateOfBirth, "Unknown Country", film.getFilmId());
             actorRepository.save(actor);
         }
+        Example example = new Example(exampleMsgs[0]);
+        Example secondExample = new Example(exampleMsgs[1]);
+        exampleRepository.save(example);
+        exampleRepository.save(secondExample);
     }
 
     public static Date between(Date startInclusive, Date endExclusive) {

@@ -1,9 +1,15 @@
+com\jr\service\FilmService.class
+com\jr\repository\ExampleRepository.class
+com\jr\service\ExampleService.class
+com\jr\model\ExampleInput.class
+com\jr\service\ActorService.class
+com\jr\model\Example.class
 com\jr\model\Actor.class
 com\jr\model\Film.class
 com\jr\repository\ActorRepository.class
 com\jr\repository\FilmRepository.class
-com\jr\service\FilmService.class
 com\jr\service\DataLoaderService$1.class
+com\jr\service\FilmResolver.class
 com\jr\BootStrap.class
-com\jr\service\ActorService.class
 com\jr\service\DataLoaderService.class
+com\jr\model\AddressInput.class
